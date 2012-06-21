@@ -434,6 +434,7 @@ function ccall(ident, returnType, argTypes, args) {
   var stack = 0;
   function toC(value, type) {
     if (type == 'string') {
+      if (value === null || value === undefined || value === 0) return 0; // null string
       if (!stack) stack = Runtime.stackSave();
       var ret = Runtime.stackAlloc(value.length+1);
       writeStringToMemory(value, ret);
@@ -850,6 +851,7 @@ function addRunDependency() {
     Module['monitorRunDependencies'](runDependencies);
   }
 }
+Module['addRunDependency'] = addRunDependency;
 function removeRunDependency() {
   runDependencies--;
   if (Module['monitorRunDependencies']) {
@@ -857,6 +859,7 @@ function removeRunDependency() {
   }
   if (runDependencies == 0) run();
 }
+Module['removeRunDependency'] = removeRunDependency;
 
 // === Body ===
 
@@ -957,32 +960,32 @@ function _MAIN__() {
   __label__ = 2; 
   while(1) switch(__label__) {
     case 2: 
-      HEAP32[((_MAIN___i__)>>2)]=0;
-      __label__ = 3; break;
+      HEAP32[((_MAIN___i__)>>2)]=0; //@line 35 "six.c"
+      __label__ = 3; break; //@line 35 "six.c"
     case 3: 
-      var $0=HEAP32[((_MAIN___i__)>>2)];
-      var $cmp=(($0)|0) <= 24;
-      if ($cmp) { __label__ = 4; break; } else { __label__ = 6; break; }
+      var $0=HEAP32[((_MAIN___i__)>>2)]; //@line 35 "six.c"
+      var $cmp=(($0)|0) <= 24; //@line 35 "six.c"
+      if ($cmp) { __label__ = 4; break; } else { __label__ = 6; break; } //@line 35 "six.c"
     case 4: 
-      var $1=HEAP32[((_MAIN___i__)>>2)];
-      var $mul=((($1)*(3600))|0);
-      HEAP32[((_MAIN___second)>>2)]=$mul;
-      var $call=_s_wsle(_MAIN___io___3);
-      var $call1=_do_lio(_c__9, _c__1, ((STRING_TABLE.__str)|0), 7);
-      var $call2=_do_lio(_c__3, _c__1, _MAIN___i__, 4);
-      var $call3=_do_lio(_c__9, _c__1, ((STRING_TABLE.__str1)|0), 11);
-      var $call4=_do_lio(_c__3, _c__1, _MAIN___second, 4);
-      var $call5=_e_wsle();
-      __label__ = 5; break;
+      var $1=HEAP32[((_MAIN___i__)>>2)]; //@line 36 "six.c"
+      var $mul=((($1)*(3600))|0); //@line 36 "six.c"
+      HEAP32[((_MAIN___second)>>2)]=$mul; //@line 36 "six.c"
+      var $call=_s_wsle(_MAIN___io___3); //@line 37 "six.c"
+      var $call1=_do_lio(_c__9, _c__1, ((STRING_TABLE.__str)|0), 7); //@line 38 "six.c"
+      var $call2=_do_lio(_c__3, _c__1, _MAIN___i__, 4); //@line 39 "six.c"
+      var $call3=_do_lio(_c__9, _c__1, ((STRING_TABLE.__str1)|0), 11); //@line 40 "six.c"
+      var $call4=_do_lio(_c__3, _c__1, _MAIN___second, 4); //@line 41 "six.c"
+      var $call5=_e_wsle(); //@line 42 "six.c"
+      __label__ = 5; break; //@line 44 "six.c"
     case 5: 
-      var $2=HEAP32[((_MAIN___i__)>>2)];
-      var $inc=((($2)+(1))|0);
-      HEAP32[((_MAIN___i__)>>2)]=$inc;
-      __label__ = 3; break;
+      var $2=HEAP32[((_MAIN___i__)>>2)]; //@line 35 "six.c"
+      var $inc=((($2)+(1))|0); //@line 35 "six.c"
+      HEAP32[((_MAIN___i__)>>2)]=$inc; //@line 35 "six.c"
+      __label__ = 3; break; //@line 35 "six.c"
     case 6: 
-      var $call6=_s_stop(((__str2)|0), 0);
+      var $call6=_s_stop(((__str2)|0), 0); //@line 45 "six.c"
       ;
-      return 0;
+      return 0; //@line 46 "six.c"
     default: assert(0, "bad label: " + __label__);
   }
 }
@@ -1267,36 +1270,32 @@ function _t_runc($a) {
       var $18=$loc; //@line 149 "endfile.c"
       var $call13=_ftruncate($call12, $18); //@line 149 "endfile.c"
       $rc=$call13; //@line 149 "endfile.c"
-      var $19=$b; //@line 152 "endfile.c"
-      var $ufd14=(($19)|0); //@line 152 "endfile.c"
-      var $20=HEAP32[(($ufd14)>>2)]; //@line 152 "endfile.c"
-      var $call15=_fseek($20, 0, 2); //@line 152 "endfile.c"
-      var $21=$rc; //@line 154 "endfile.c"
-      var $tobool16=(($21)|0)!=0; //@line 154 "endfile.c"
-      if ($tobool16) { __label__ = 10; break; } else { __label__ = 14; break; } //@line 154 "endfile.c"
+      var $19=$rc; //@line 157 "endfile.c"
+      var $tobool14=(($19)|0)!=0; //@line 157 "endfile.c"
+      if ($tobool14) { __label__ = 10; break; } else { __label__ = 14; break; } //@line 157 "endfile.c"
     case 10: 
-      var $22=$a_addr; //@line 155 "endfile.c"
-      var $aerr=(($22)|0); //@line 155 "endfile.c"
-      var $23=HEAP32[(($aerr)>>2)]; //@line 155 "endfile.c"
-      var $tobool18=(($23)|0)!=0; //@line 155 "endfile.c"
-      if ($tobool18) { __label__ = 11; break; } else { __label__ = 12; break; } //@line 155 "endfile.c"
+      var $20=$a_addr; //@line 158 "endfile.c"
+      var $aerr=(($20)|0); //@line 158 "endfile.c"
+      var $21=HEAP32[(($aerr)>>2)]; //@line 158 "endfile.c"
+      var $tobool16=(($21)|0)!=0; //@line 158 "endfile.c"
+      if ($tobool16) { __label__ = 11; break; } else { __label__ = 12; break; } //@line 158 "endfile.c"
     case 11: 
-      var $call20=___errno(); //@line 155 "endfile.c"
-      HEAP32[(($call20)>>2)]=111; //@line 155 "endfile.c"
-      __label__ = 13; break; //@line 155 "endfile.c"
+      var $call18=___errno(); //@line 158 "endfile.c"
+      HEAP32[(($call18)>>2)]=111; //@line 158 "endfile.c"
+      __label__ = 13; break; //@line 158 "endfile.c"
     case 12: 
-      _f__fatal(111, ((STRING_TABLE.__str21)|0)); //@line 155 "endfile.c"
+      _f__fatal(111, ((STRING_TABLE.__str21)|0)); //@line 158 "endfile.c"
       __label__ = 13; break;
     case 13: 
-      $retval=111; //@line 155 "endfile.c"
-      __label__ = 15; break; //@line 155 "endfile.c"
+      $retval=111; //@line 158 "endfile.c"
+      __label__ = 15; break; //@line 158 "endfile.c"
     case 14: 
-      $retval=0; //@line 156 "endfile.c"
-      __label__ = 15; break; //@line 156 "endfile.c"
+      $retval=0; //@line 159 "endfile.c"
+      __label__ = 15; break; //@line 159 "endfile.c"
     case 15: 
-      var $24=$retval; //@line 157 "endfile.c"
+      var $22=$retval; //@line 160 "endfile.c"
       ;
-      return $24; //@line 157 "endfile.c"
+      return $22; //@line 160 "endfile.c"
     default: assert(0, "bad label: " + __label__);
   }
 }
@@ -12922,9 +12921,104 @@ var _llvm_expect_i32; // stub for _llvm_expect_i32
     }
 
 
+
+  var Browser={mainLoop:{scheduler:null,shouldPause:false,paused:false},pointerLock:false,moduleContextCreatedCallbacks:[],createContext:function (canvas, useWebGL, setInModule) {
+        try {
+          var ctx = canvas.getContext(useWebGL ? 'experimental-webgl' : '2d');
+          if (!ctx) throw ':(';
+        } catch (e) {
+          Module.print('Could not create canvas - ' + e);
+          return null;
+        }
+        if (useWebGL) {
+          // Set the background of the WebGL canvas to black
+          canvas.style.backgroundColor = "black";
+  
+          // Warn on context loss
+          canvas.addEventListener('webglcontextlost', function(event) {
+            alert('WebGL context lost. You will need to reload the page.');
+          }, false);
+        }
+        if (setInModule) {
+          Module.ctx = ctx;
+          Module.useWebGL = useWebGL;
+          Browser.moduleContextCreatedCallbacks.forEach(function(callback) { callback() });
+        }
+        return ctx;
+      },requestFullScreen:function () {
+        var canvas = Module.canvas;
+        function fullScreenChange() {
+          if (document['webkitFullScreenElement'] === canvas ||
+              document['mozFullScreenElement'] === canvas ||
+              document['fullScreenElement'] === canvas) {
+            canvas.requestPointerLock = canvas['requestPointerLock'] ||
+                                        canvas['mozRequestPointerLock'] ||
+                                        canvas['webkitRequestPointerLock'];
+            canvas.requestPointerLock();
+          }
+        }
+  
+        document.addEventListener('fullscreenchange', fullScreenChange, false);
+        document.addEventListener('mozfullscreenchange', fullScreenChange, false);
+        document.addEventListener('webkitfullscreenchange', fullScreenChange, false);
+  
+        function pointerLockChange() {
+          Browser.pointerLock = document['pointerLockElement'] === canvas ||
+                                document['mozPointerLockElement'] === canvas ||
+                                document['webkitPointerLockElement'] === canvas;
+        }
+  
+        document.addEventListener('pointerlockchange', pointerLockChange, false);
+        document.addEventListener('mozpointerlockchange', pointerLockChange, false);
+        document.addEventListener('webkitpointerlockchange', pointerLockChange, false);
+  
+        canvas.requestFullScreen = canvas['requestFullScreen'] ||
+                                   canvas['mozRequestFullScreen'] ||
+                                   (canvas['webkitRequestFullScreen'] ? function() { canvas['webkitRequestFullScreen'](Element['ALLOW_KEYBOARD_INPUT']) } : null);
+        canvas.requestFullScreen(); 
+      },requestAnimationFrame:function (func) {
+        if (!window.requestAnimationFrame) {
+          window.requestAnimationFrame = window['requestAnimationFrame'] ||
+                                         window['mozRequestAnimationFrame'] ||
+                                         window['webkitRequestAnimationFrame'] ||
+                                         window['msRequestAnimationFrame'] ||
+                                         window['oRequestAnimationFrame'] ||
+                                         window['setTimeout'];
+        }
+        window.requestAnimationFrame(func);
+      },getMovementX:function (delta, event) {
+        if (!Browser.pointerLock) return delta;
+        return event['movementX'] ||
+               event['mozMovementX'] ||
+               event['webkitMovementX'] ||
+               0; // delta;
+      },getMovementY:function (delta, event) {
+        if (!Browser.pointerLock) return delta;
+        return event['movementY'] ||
+               event['mozMovementY'] ||
+               event['webkitMovementY'] ||
+               0; // delta;
+      },asyncLoad:function (url, callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.responseType = 'arraybuffer';
+        xhr.onload = function() {
+          var arrayBuffer = xhr.response;
+          assert(arrayBuffer, 'Loading data file "' + url + '" failed (no arrayBuffer).');
+          callback(new Uint8Array(arrayBuffer));
+          removeRunDependency();
+        };
+        xhr.onerror = function(event) {
+          assert(arrayBuffer, 'Loading data file "' + url + '" failed.');
+        };
+        xhr.send(null);
+        addRunDependency();
+      }};
 ___setErrNo(0);
-__ATINIT__.unshift({ func: function() { if (!Module["noFSInit"] && !FS.init.initialized) FS.init() } });__ATMAIN__.push({ func: function() { FS.ignorePermissions = false } });__ATEXIT__.push({ func: function() { FS.quit() } });
+__ATINIT__.unshift({ func: function() { if (!Module["noFSInit"] && !FS.init.initialized) FS.init() } });__ATMAIN__.push({ func: function() { FS.ignorePermissions = false } });__ATEXIT__.push({ func: function() { FS.quit() } });Module["FS_createFolder"] = FS.createFolder;Module["FS_createPath"] = FS.createPath;Module["FS_createDataFile"] = FS.createDataFile;Module["FS_createLazyFile"] = FS.createLazyFile;Module["FS_createLink"] = FS.createLink;Module["FS_createDevice"] = FS.createDevice;
 _fputc.ret = allocate([0], "i8", ALLOC_STATIC);
+Module["requestFullScreen"] = function() { Browser.requestFullScreen() };
+  
 
 // === Auto-generated postamble setup entry stuff ===
 
@@ -13258,7 +13352,18 @@ function run(args) {
     return ret;
   }
 
-  return doRun();
+  if (Module['setStatus']) {
+    Module['setStatus']('Running...');
+    setTimeout(function() {
+      setTimeout(function() {
+        Module['setStatus']('');
+      }, 1);
+      doRun();
+    }, 1);
+    return 0;
+  } else {
+    return doRun();
+  }
 }
 Module['run'] = run;
 

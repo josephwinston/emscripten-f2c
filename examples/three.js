@@ -958,43 +958,43 @@ function _MAIN__() {
   ;
   var __label__;
 
-  HEAP32[((_MAIN___i__)>>2)]=1;
-  HEAPF32[((_MAIN___x)>>2)]=1;
-  var $call=_s_wsle(_MAIN___io___3);
-  var $call1=_do_lio(_c__9, _c__1, ((STRING_TABLE.__str)|0), 27);
-  var $call2=_do_lio(_c__4, _c__1, _MAIN___x, 4);
-  var $call3=_e_wsle();
-  var $call4=_s_wsle(_MAIN___io___4);
-  var $call5=_do_lio(_c__9, _c__1, ((STRING_TABLE.__str1)|0), 31);
-  var $call6=_do_lio(_c__3, _c__1, _MAIN___i__, 4);
-  var $call7=_e_wsle();
-  HEAPF32[((_MAIN___realpi)>>2)]=3.1415998935699463;
-  var $0=HEAPF32[((_MAIN___realpi)>>2)];
-  var $conv=(($0)&-1);
-  HEAP32[((_MAIN___intpi)>>2)]=$conv;
-  var $call8=_s_wsle(_MAIN___io___7);
-  var $call9=_do_lio(_c__9, _c__1, ((STRING_TABLE.__str2)|0), 28);
-  var $call10=_do_lio(_c__4, _c__1, _MAIN___realpi, 4);
-  var $call11=_e_wsle();
-  var $call12=_s_wsle(_MAIN___io___8);
-  var $call13=_do_lio(_c__9, _c__1, ((STRING_TABLE.__str3)|0), 32);
-  var $call14=_do_lio(_c__3, _c__1, _MAIN___intpi, 4);
-  var $call15=_e_wsle();
-  HEAPF32[((_MAIN___reale)>>2)]=2.718280076980591;
-  var $1=HEAPF32[((_MAIN___reale)>>2)];
-  var $conv16=(($1)&-1);
-  HEAP32[((_MAIN___inte)>>2)]=$conv16;
-  var $call17=_s_wsle(_MAIN___io___11);
-  var $call18=_do_lio(_c__9, _c__1, ((STRING_TABLE.__str4)|0), 27);
-  var $call19=_do_lio(_c__4, _c__1, _MAIN___reale, 4);
-  var $call20=_e_wsle();
-  var $call21=_s_wsle(_MAIN___io___12);
-  var $call22=_do_lio(_c__9, _c__1, ((STRING_TABLE.__str5)|0), 31);
-  var $call23=_do_lio(_c__3, _c__1, _MAIN___inte, 4);
-  var $call24=_e_wsle();
-  var $call25=_s_stop(((__str6)|0), 0);
+  HEAP32[((_MAIN___i__)>>2)]=1; //@line 46 "three.c"
+  HEAPF32[((_MAIN___x)>>2)]=1; //@line 47 "three.c"
+  var $call=_s_wsle(_MAIN___io___3); //@line 48 "three.c"
+  var $call1=_do_lio(_c__9, _c__1, ((STRING_TABLE.__str)|0), 27); //@line 49 "three.c"
+  var $call2=_do_lio(_c__4, _c__1, _MAIN___x, 4); //@line 50 "three.c"
+  var $call3=_e_wsle(); //@line 51 "three.c"
+  var $call4=_s_wsle(_MAIN___io___4); //@line 52 "three.c"
+  var $call5=_do_lio(_c__9, _c__1, ((STRING_TABLE.__str1)|0), 31); //@line 53 "three.c"
+  var $call6=_do_lio(_c__3, _c__1, _MAIN___i__, 4); //@line 54 "three.c"
+  var $call7=_e_wsle(); //@line 55 "three.c"
+  HEAPF32[((_MAIN___realpi)>>2)]=3.1415998935699463; //@line 56 "three.c"
+  var $0=HEAPF32[((_MAIN___realpi)>>2)]; //@line 57 "three.c"
+  var $conv=(($0)&-1); //@line 57 "three.c"
+  HEAP32[((_MAIN___intpi)>>2)]=$conv; //@line 57 "three.c"
+  var $call8=_s_wsle(_MAIN___io___7); //@line 58 "three.c"
+  var $call9=_do_lio(_c__9, _c__1, ((STRING_TABLE.__str2)|0), 28); //@line 59 "three.c"
+  var $call10=_do_lio(_c__4, _c__1, _MAIN___realpi, 4); //@line 60 "three.c"
+  var $call11=_e_wsle(); //@line 61 "three.c"
+  var $call12=_s_wsle(_MAIN___io___8); //@line 62 "three.c"
+  var $call13=_do_lio(_c__9, _c__1, ((STRING_TABLE.__str3)|0), 32); //@line 63 "three.c"
+  var $call14=_do_lio(_c__3, _c__1, _MAIN___intpi, 4); //@line 64 "three.c"
+  var $call15=_e_wsle(); //@line 65 "three.c"
+  HEAPF32[((_MAIN___reale)>>2)]=2.718280076980591; //@line 66 "three.c"
+  var $1=HEAPF32[((_MAIN___reale)>>2)]; //@line 67 "three.c"
+  var $conv16=(($1)&-1); //@line 67 "three.c"
+  HEAP32[((_MAIN___inte)>>2)]=$conv16; //@line 67 "three.c"
+  var $call17=_s_wsle(_MAIN___io___11); //@line 68 "three.c"
+  var $call18=_do_lio(_c__9, _c__1, ((STRING_TABLE.__str4)|0), 27); //@line 69 "three.c"
+  var $call19=_do_lio(_c__4, _c__1, _MAIN___reale, 4); //@line 70 "three.c"
+  var $call20=_e_wsle(); //@line 71 "three.c"
+  var $call21=_s_wsle(_MAIN___io___12); //@line 72 "three.c"
+  var $call22=_do_lio(_c__9, _c__1, ((STRING_TABLE.__str5)|0), 31); //@line 73 "three.c"
+  var $call23=_do_lio(_c__3, _c__1, _MAIN___inte, 4); //@line 74 "three.c"
+  var $call24=_e_wsle(); //@line 75 "three.c"
+  var $call25=_s_stop(((__str6)|0), 0); //@line 76 "three.c"
   ;
-  return 0;
+  return 0; //@line 77 "three.c"
 }
 
 
